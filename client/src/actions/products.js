@@ -1,6 +1,6 @@
-export function selectProduct(item) {
+export function selectProduct(id) {
     return {
         type: 'PRODUCT_SELECTED',
-        payload: item
+        payload: id
     }
 }

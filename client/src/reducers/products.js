@@ -1,5 +1,5 @@
 export const initialState = {
-    products: [
+    data: [
         { 
             id: 1,
             name: 'Pizza', 
@@ -25,16 +25,15 @@ export const initialState = {
             price: 2
         }
     ],
-    activeProducts: {  },
+    activeProduct: {},
 }
 
 export default function (state = initialState, action) {
     switch(action.type) {
-        case 'PRODUCT_LIST':
-            return state;
         case 'PRODUCT_SELECTED':
-            return action.payload;
+        let [ find ] = state.data.filter(item => item.id === parseInt(action.payload))
+        return { ...state, activeProduct: find }
+        default:
+            return state;
     }
-
-    return state;
 }
